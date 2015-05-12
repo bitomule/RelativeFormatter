@@ -31,31 +31,52 @@ extension NSDate{
         var count:Int?
         if(components.year >= 2){
             count = components.year
-            key = "\(components.year) years ago"
+            key = "yearsago"
         }
         else if(components.year >= 1){
-            key = "1 year ago"
+            key = "yearago"
         }
         else if(components.month >= 2){
             count = components.month
-            key = "\(components.month) months ago"
+            key = "monthsago"
         }
         else if(components.month >= 1){
-            key = "1 month ago"
+            key = "monthago"
         }
         else if(components.weekOfYear >= 2){
             count = components.weekOfYear
-            key = "\(components.weekOfYear) weeks ago"
+            key = "weeksago"
         }
         else if(components.weekOfYear >= 1){
-            key = "1 week ago"
+            key = "weekago"
         }
         else if(components.day >= 2){
             count = components.day
-            key = "\(components.day) days ago"
+            key = "daysago"
         }
         else if(components.day >= 1){
-            key = "1 day ago"
+            key = "dayago"
+        }
+        else if(components.hour >= 2){
+            count = components.hour
+            key = "hoursago"
+        }
+        else if(components.hour >= 1){
+            key = "hourago"
+        }
+        else if(components.minute >= 2){
+            count = components.minute
+            key = "minutesago"
+        }
+        else if(components.minute >= 1){
+            key = "minuteago"
+        }
+        else if(components.second >= 2){
+            count = components.second
+            key = "secondsago"
+        }
+        else{
+            key = "secondago"
         }
         
         return (key,count)
