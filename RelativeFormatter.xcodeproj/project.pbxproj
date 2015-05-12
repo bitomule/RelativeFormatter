@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41A56CE01B022F0200347FE2 /* NSDate+RelativeFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A56CDF1B022F0200347FE2 /* NSDate+RelativeFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		41A56CE61B022F0200347FE2 /* RelativeFormatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A56CDA1B022F0200347FE2 /* RelativeFormatter.framework */; };
-		41A56CED1B022F0200347FE2 /* NSDate_RelativeFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A56CEC1B022F0200347FE2 /* NSDate_RelativeFormatterTests.swift */; };
-		41A56CF71B022F2E00347FE2 /* NSDate+RelativeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A56CF61B022F2E00347FE2 /* NSDate+RelativeFormatter.swift */; };
-		41A56CF81B0233C700347FE2 /* NSDate+RelativeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A56CF61B022F2E00347FE2 /* NSDate+RelativeFormatter.swift */; };
+		41A56D001B02416E00347FE2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41A56CFA1B02416E00347FE2 /* Info.plist */; };
+		41A56D011B02416E00347FE2 /* NSDate+RelativeFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A56CFB1B02416E00347FE2 /* NSDate+RelativeFormatter.h */; };
+		41A56D021B02416E00347FE2 /* NSDate+RelativeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A56CFC1B02416E00347FE2 /* NSDate+RelativeFormatter.swift */; };
+		41A56D031B02416E00347FE2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41A56CFE1B02416E00347FE2 /* Info.plist */; };
+		41A56D041B02416E00347FE2 /* NSDate_RelativeFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A56CFF1B02416E00347FE2 /* NSDate_RelativeFormatterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,12 +27,12 @@
 
 /* Begin PBXFileReference section */
 		41A56CDA1B022F0200347FE2 /* RelativeFormatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RelativeFormatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41A56CDE1B022F0200347FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41A56CDF1B022F0200347FE2 /* NSDate+RelativeFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+RelativeFormatter.h"; sourceTree = "<group>"; };
 		41A56CE51B022F0200347FE2 /* NSDate+RelativeFormatterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NSDate+RelativeFormatterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		41A56CEB1B022F0200347FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41A56CEC1B022F0200347FE2 /* NSDate_RelativeFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDate_RelativeFormatterTests.swift; sourceTree = "<group>"; };
-		41A56CF61B022F2E00347FE2 /* NSDate+RelativeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+RelativeFormatter.swift"; sourceTree = "<group>"; };
+		41A56CFA1B02416E00347FE2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41A56CFB1B02416E00347FE2 /* NSDate+RelativeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RelativeFormatter.h"; sourceTree = "<group>"; };
+		41A56CFC1B02416E00347FE2 /* NSDate+RelativeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+RelativeFormatter.swift"; sourceTree = "<group>"; };
+		41A56CFE1B02416E00347FE2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41A56CFF1B02416E00347FE2 /* NSDate_RelativeFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate_RelativeFormatterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +57,8 @@
 		41A56CD01B022F0200347FE2 = {
 			isa = PBXGroup;
 			children = (
-				41A56CDC1B022F0200347FE2 /* NSDate+RelativeFormatter */,
-				41A56CE91B022F0200347FE2 /* NSDate+RelativeFormatterTests */,
+				41A56CF91B02416E00347FE2 /* Source */,
+				41A56CFD1B02416E00347FE2 /* Tests */,
 				41A56CDB1B022F0200347FE2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,39 +72,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		41A56CDC1B022F0200347FE2 /* NSDate+RelativeFormatter */ = {
+		41A56CF91B02416E00347FE2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				41A56CDF1B022F0200347FE2 /* NSDate+RelativeFormatter.h */,
-				41A56CDD1B022F0200347FE2 /* Supporting Files */,
-				41A56CF61B022F2E00347FE2 /* NSDate+RelativeFormatter.swift */,
+				41A56CFA1B02416E00347FE2 /* Info.plist */,
+				41A56CFB1B02416E00347FE2 /* NSDate+RelativeFormatter.h */,
+				41A56CFC1B02416E00347FE2 /* NSDate+RelativeFormatter.swift */,
 			);
-			path = "NSDate+RelativeFormatter";
+			path = Source;
 			sourceTree = "<group>";
 		};
-		41A56CDD1B022F0200347FE2 /* Supporting Files */ = {
+		41A56CFD1B02416E00347FE2 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				41A56CDE1B022F0200347FE2 /* Info.plist */,
+				41A56CFE1B02416E00347FE2 /* Info.plist */,
+				41A56CFF1B02416E00347FE2 /* NSDate_RelativeFormatterTests.swift */,
 			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		41A56CE91B022F0200347FE2 /* NSDate+RelativeFormatterTests */ = {
-			isa = PBXGroup;
-			children = (
-				41A56CEC1B022F0200347FE2 /* NSDate_RelativeFormatterTests.swift */,
-				41A56CEA1B022F0200347FE2 /* Supporting Files */,
-			);
-			path = "NSDate+RelativeFormatterTests";
-			sourceTree = "<group>";
-		};
-		41A56CEA1B022F0200347FE2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				41A56CEB1B022F0200347FE2 /* Info.plist */,
-			);
-			name = "Supporting Files";
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,7 +98,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41A56CE01B022F0200347FE2 /* NSDate+RelativeFormatter.h in Headers */,
+				41A56D011B02416E00347FE2 /* NSDate+RelativeFormatter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +158,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 41A56CD41B022F0200347FE2 /* Build configuration list for PBXProject "NSDate+RelativeFormatter" */;
+			buildConfigurationList = 41A56CD41B022F0200347FE2 /* Build configuration list for PBXProject "RelativeFormatter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -196,6 +181,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A56D031B02416E00347FE2 /* Info.plist in Resources */,
+				41A56D001B02416E00347FE2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41A56CF71B022F2E00347FE2 /* NSDate+RelativeFormatter.swift in Sources */,
+				41A56D021B02416E00347FE2 /* NSDate+RelativeFormatter.swift in Sources */,
+				41A56D041B02416E00347FE2 /* NSDate_RelativeFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,8 +209,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41A56CED1B022F0200347FE2 /* NSDate_RelativeFormatterTests.swift in Sources */,
-				41A56CF81B0233C700347FE2 /* NSDate+RelativeFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +378,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		41A56CD41B022F0200347FE2 /* Build configuration list for PBXProject "NSDate+RelativeFormatter" */ = {
+		41A56CD41B022F0200347FE2 /* Build configuration list for PBXProject "RelativeFormatter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				41A56CEE1B022F0200347FE2 /* Debug */,

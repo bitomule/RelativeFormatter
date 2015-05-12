@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name         = "NSDate+RelativeFormatter"
-  s.version      = "0.0.1"
+  s.name         = "RelativeFormatter"
+  s.version      = "0.0.2"
   s.summary      = "NSDate swift extension to format dates relative to current date."
 
   s.description  = <<-DESC

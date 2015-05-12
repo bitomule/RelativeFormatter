@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:NSDate+RelativeFormatter.xcodeproj">
+      location = "self:RelativeFormatter.xcodeproj">
    </FileRef>
 </Workspace>
