@@ -10,16 +10,7 @@ import Foundation
 
 extension NSDate{
     
-    public enum Format{
-        case Seconds,Hours,Days,Weeks,Months,Years
-    }
-    
-    public func relativeFormatted(format:Format=Format.Seconds)->String{
-        let formattedDateData = getFormatKeyAndCount(format)
-        return LocalizationHelper.localize(formattedDateData.key,count:formattedDateData.count)
-    }
-    
-    func getFormatKeyAndCount(format:Format)->(key:String,count:Int?){
+    public func relativeFormatted()->String{
         let calendar = NSCalendar.currentCalendar()
         let unitFlags = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitSecond
         let now = NSDate()
@@ -27,6 +18,14 @@ extension NSDate{
         let latest = (earliest == now) ? self : now
         let components:NSDateComponents = calendar.components(unitFlags, fromDate: earliest, toDate: latest, options: nil)
         
+        let formattedDateData = RelativeFormatter.getPastKeyAndCount(components)
+        return LocalizationHelper.localize(formattedDateData.key,count:formattedDateData.count)
+    }
+}
+
+class RelativeFormatter {
+    
+    class func getPastKeyAndCount(components:NSDateComponents)->(key:String,count:Int?){
         var key = ""
         var count:Int?
         if(components.year >= 2){
@@ -81,5 +80,4 @@ extension NSDate{
         
         return (key,count)
     }
-    
 }
