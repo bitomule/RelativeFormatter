@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
                    * Time in the future formatted dates "In 2 days"
                    DESC
 
-  s.homepage     = "https://github.com/bitomule/NSDate-RelativeFormatter"
+  s.homepage     = "https://github.com/bitomule/RelativeFormatter"
   s.license      = "MIT"
 
 
@@ -28,9 +28,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/bitomule/NSDate-RelativeFormatter.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/bitomule/RelativeFormatter.git", :tag => "0.0.1" }
 
-  s.source_files = 'NSDate+RelativeFormatter/*.swift'
+  s.source_files = 'Source/*.swift'
   s.requires_arc = true
 
 end
