@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		41A56CE61B022F0200347FE2 /* RelativeFormatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A56CDA1B022F0200347FE2 /* RelativeFormatter.framework */; };
-		41A56D001B02416E00347FE2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41A56CFA1B02416E00347FE2 /* Info.plist */; };
-		41A56D011B02416E00347FE2 /* NSDate+RelativeFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A56CFB1B02416E00347FE2 /* NSDate+RelativeFormatter.h */; };
-		41A56D021B02416E00347FE2 /* NSDate+RelativeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A56CFC1B02416E00347FE2 /* NSDate+RelativeFormatter.swift */; };
+		41A56D021B02416E00347FE2 /* RelativeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A56CFC1B02416E00347FE2 /* RelativeFormatter.swift */; };
 		41A56D031B02416E00347FE2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41A56CFE1B02416E00347FE2 /* Info.plist */; };
 		41A56D041B02416E00347FE2 /* NSDate_RelativeFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A56CFF1B02416E00347FE2 /* NSDate_RelativeFormatterTests.swift */; };
 /* End PBXBuildFile section */
@@ -27,10 +25,8 @@
 
 /* Begin PBXFileReference section */
 		41A56CDA1B022F0200347FE2 /* RelativeFormatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RelativeFormatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41A56CE51B022F0200347FE2 /* NSDate+RelativeFormatterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NSDate+RelativeFormatterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		41A56CFA1B02416E00347FE2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41A56CFB1B02416E00347FE2 /* NSDate+RelativeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RelativeFormatter.h"; sourceTree = "<group>"; };
-		41A56CFC1B02416E00347FE2 /* NSDate+RelativeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+RelativeFormatter.swift"; sourceTree = "<group>"; };
+		41A56CE51B022F0200347FE2 /* RelativeFormatterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RelativeFormatterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41A56CFC1B02416E00347FE2 /* RelativeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeFormatter.swift; sourceTree = "<group>"; };
 		41A56CFE1B02416E00347FE2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41A56CFF1B02416E00347FE2 /* NSDate_RelativeFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate_RelativeFormatterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				41A56CDA1B022F0200347FE2 /* RelativeFormatter.framework */,
-				41A56CE51B022F0200347FE2 /* NSDate+RelativeFormatterTests.xctest */,
+				41A56CE51B022F0200347FE2 /* RelativeFormatterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,9 +71,7 @@
 		41A56CF91B02416E00347FE2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				41A56CFA1B02416E00347FE2 /* Info.plist */,
-				41A56CFB1B02416E00347FE2 /* NSDate+RelativeFormatter.h */,
-				41A56CFC1B02416E00347FE2 /* NSDate+RelativeFormatter.swift */,
+				41A56CFC1B02416E00347FE2 /* RelativeFormatter.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -98,7 +92,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41A56D011B02416E00347FE2 /* NSDate+RelativeFormatter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +131,7 @@
 			);
 			name = RelativeFormatterTests;
 			productName = "NSDate+RelativeFormatterTests";
-			productReference = 41A56CE51B022F0200347FE2 /* NSDate+RelativeFormatterTests.xctest */;
+			productReference = 41A56CE51B022F0200347FE2 /* RelativeFormatterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -182,7 +175,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				41A56D031B02416E00347FE2 /* Info.plist in Resources */,
-				41A56D001B02416E00347FE2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41A56D021B02416E00347FE2 /* NSDate+RelativeFormatter.swift in Sources */,
+				41A56D021B02416E00347FE2 /* RelativeFormatter.swift in Sources */,
 				41A56D041B02416E00347FE2 /* NSDate_RelativeFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,7 +348,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "NSDate+RelativeFormatterTests/Info.plist";
+				INFOPLIST_FILE = RelativeFormatter.xcodeproj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -369,7 +361,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "NSDate+RelativeFormatterTests/Info.plist";
+				INFOPLIST_FILE = RelativeFormatter.xcodeproj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -394,6 +386,7 @@
 				41A56CF21B022F0200347FE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41A56CF31B022F0200347FE2 /* Build configuration list for PBXNativeTarget "RelativeFormatterTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +395,7 @@
 				41A56CF51B022F0200347FE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,6 +1,6 @@
 //
-//  NSDate+RelativeFormatter.swift
-//  NSDate+RelativeFormatter
+//  RelativeFormatter.swift
+//  RelativeFormatter
 //
 //  Created by David Collado Sela on 12/5/15.
 //  Copyright (c) 2015 David Collado Sela. All rights reserved.
