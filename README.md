@@ -1,5 +1,5 @@
 # NSDate-RelativeFormatter
-NSDate swift extension to format dates relative to current date.
+NSDate swift extension to format dates according to current date.
 
 ## Features
 
@@ -42,3 +42,36 @@ Then, run the following command:
 ```bash
 $ pod install
 ```
+
+### How To Use
+
+RelativeFormatter is just an NSDate extension, you can use it with any NSDate object:
+
+If you have an NSDate representing a date 2 months ago just use:
+
+```swift
+	oldDate.relativeFormatted()
+```
+
+And you'll get:
+
+"2 months ago"
+
+It also works for ahead dates (date in 3 years):
+
+```swift
+	futureDate.relativeFormatted()
+```
+
+will return:
+
+"In 3 years"
+
+### Languages
+
+RelativeFormatter includes localization for:
+
+- [x] English
+- [x] Spanish
+
+If you can to include a new language please create a pull request
