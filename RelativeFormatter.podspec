@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/bitomule/RelativeFormatter.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/bitomule/RelativeFormatter.git", :tag => "0.0.3" }
 
   s.source_files = 'Source/*.swift'
   s.requires_arc = true
