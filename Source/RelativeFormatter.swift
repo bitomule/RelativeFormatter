@@ -10,7 +10,7 @@ import Foundation
 
 extension NSDate{
     
-    enum Format{
+    public enum Format{
         case Seconds,Hours,Days,Weeks,Months,Years
     }
     
