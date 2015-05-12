@@ -1,4 +1,4 @@
-# NSDate-RelativeFormatter
+# RelativeFormatter
 NSDate swift extension to format dates according to current date.
 
 ## Features
