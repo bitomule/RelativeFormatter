@@ -14,7 +14,7 @@ extension NSDate{
         case Seconds,Hours,Days,Weeks,Months,Years
     }
     
-    func relativeFormatted(format:Format=Format.Seconds)->String{
+    public func relativeFormatted(format:Format=Format.Seconds)->String{
         let calendar = NSCalendar.currentCalendar()
         let unitFlags = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitSecond
         let now = NSDate()
