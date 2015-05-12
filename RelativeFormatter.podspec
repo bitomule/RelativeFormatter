@@ -31,6 +31,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/bitomule/RelativeFormatter.git", :tag => "0.1.0" }
 
   s.source_files = 'Source/*.swift'
+  s.resources    = 'Source/RelativeFormatter.bundle'
   s.requires_arc = true
 
 end

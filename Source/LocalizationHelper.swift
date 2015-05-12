@@ -12,9 +12,9 @@ class LocalizationHelper{
     class func localize(key:String,count:Int?=nil,forcedLanguage:String?=nil)->String{
         var localizedString = ""
         if let forcedLanguage = forcedLanguage{
-            localizedString = NSLocalizedString(key, tableName: "RelativeFormatter", bundle: NSBundle(path: NSBundle(forClass: self).resourcePath!.stringByAppendingPathComponent("RelativeFormatter.bundle/\(forcedLanguage).lproj"))!, value: "", comment: "")
+            localizedString = NSLocalizedString(key, tableName: "RelativeFormatter", bundle: NSBundle(path: NSBundle(forClass: LocalizationHelper.self).resourcePath!.stringByAppendingPathComponent("RelativeFormatter.bundle/\(forcedLanguage).lproj"))!, value: "", comment: "")
         }else{
-            localizedString = NSLocalizedString(key, tableName: "RelativeFormatter", bundle: NSBundle(path: NSBundle(forClass: self).resourcePath!.stringByAppendingPathComponent("RelativeFormatter.bundle"))!, value: "", comment: "")
+            localizedString = NSLocalizedString(key, tableName: "RelativeFormatter", bundle: NSBundle(path: NSBundle(forClass: LocalizationHelper.self).resourcePath!.stringByAppendingPathComponent("RelativeFormatter.bundle"))!, value: "", comment: "")
         }
         
         if let count = count{
