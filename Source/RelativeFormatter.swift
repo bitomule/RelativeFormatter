@@ -15,6 +15,11 @@ extension NSDate{
     }
     
     public func relativeFormatted(format:Format=Format.Seconds)->String{
+        let formattedDateData = getFormatKeyAndCount(format)
+        return LocalizationHelper.localize(formattedDateData.key,count:formattedDateData.count)
+    }
+    
+    func getFormatKeyAndCount(format:Format)->(key:String,count:Int?){
         let calendar = NSCalendar.currentCalendar()
         let unitFlags = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitSecond
         let now = NSDate()
@@ -22,34 +27,38 @@ extension NSDate{
         let latest = (earliest == now) ? self : now
         let components:NSDateComponents = calendar.components(unitFlags, fromDate: earliest, toDate: latest, options: nil)
         
+        var key = ""
+        var count:Int?
         if(components.year >= 2){
-            return "\(components.year) years ago"
+            count = components.year
+            key = "\(components.year) years ago"
         }
-        if(components.year >= 1){
-            return "1 year ago"
+        else if(components.year >= 1){
+            key = "1 year ago"
         }
-        if(components.month >= 2){
-            return "\(components.month) months ago"
+        else if(components.month >= 2){
+            count = components.month
+            key = "\(components.month) months ago"
         }
-        if(components.month >= 1){
-            return "1 month ago"
+        else if(components.month >= 1){
+            key = "1 month ago"
         }
-        if(components.weekOfYear >= 2){
-            return "\(components.weekOfYear) weeks ago"
+        else if(components.weekOfYear >= 2){
+            count = components.weekOfYear
+            key = "\(components.weekOfYear) weeks ago"
         }
-        if(components.weekOfYear >= 1){
-            return "1 week ago"
+        else if(components.weekOfYear >= 1){
+            key = "1 week ago"
         }
-        if(components.day >= 2){
-            return "\(components.day) days ago"
+        else if(components.day >= 2){
+            count = components.day
+            key = "\(components.day) days ago"
         }
-        if(components.day >= 1){
-            return "1 day ago"
+        else if(components.day >= 1){
+            key = "1 day ago"
         }
-        if(components.second < 60){
-            return "\(components.second) seconds ago"
-        }
-        return ""
+        
+        return (key,count)
     }
     
 }
