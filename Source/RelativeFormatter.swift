@@ -14,11 +14,14 @@ extension NSDate{
         let calendar = NSCalendar.currentCalendar()
         let unitFlags = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitSecond
         let now = NSDate()
-        let earliest = now.earlierDate(self)
-        let latest = (earliest == now) ? self : now
-        let components:NSDateComponents = calendar.components(unitFlags, fromDate: earliest, toDate: latest, options: nil)
-        
-        let formattedDateData = RelativeFormatter.getPastKeyAndCount(components)
+        let formattedDateData:(key:String,count:Int?)
+        if(self.timeIntervalSince1970 < now.timeIntervalSince1970){
+            let components:NSDateComponents = calendar.components(unitFlags, fromDate: self, toDate: now, options: nil)
+            formattedDateData = RelativeFormatter.getPastKeyAndCount(components)
+        }else{
+            let components:NSDateComponents = calendar.components(unitFlags, fromDate: now, toDate: self, options: nil)
+            formattedDateData = RelativeFormatter.getFutureKeyAndCount(components)
+        }
         return LocalizationHelper.localize(formattedDateData.key,count:formattedDateData.count)
     }
 }
@@ -76,6 +79,64 @@ class RelativeFormatter {
         }
         else{
             key = "secondago"
+        }
+        
+        return (key,count)
+    }
+    
+    class func getFutureKeyAndCount(components:NSDateComponents)->(key:String,count:Int?){
+        var key = ""
+        var count:Int?
+        println(components.year)
+        if(components.year >= 2){
+            println(components.year)
+            count = components.year
+            key = "yearsahead"
+        }
+        else if(components.year >= 1){
+            key = "yearahead"
+        }
+        else if(components.month >= 2){
+            count = components.month
+            key = "monthsahead"
+        }
+        else if(components.month >= 1){
+            key = "monthahead"
+        }
+        else if(components.weekOfYear >= 2){
+            count = components.weekOfYear
+            key = "weeksahead"
+        }
+        else if(components.weekOfYear >= 1){
+            key = "weekahead"
+        }
+        else if(components.day >= 2){
+            count = components.day
+            key = "daysahead"
+        }
+        else if(components.day >= 1){
+            key = "dayahead"
+        }
+        else if(components.hour >= 2){
+            count = components.hour
+            key = "hoursahead"
+        }
+        else if(components.hour >= 1){
+            key = "hourahead"
+        }
+        else if(components.minute >= 2){
+            count = components.minute
+            key = "minutesahead"
+        }
+        else if(components.minute >= 1){
+            key = "minuteahead"
+        }
+        else if(components.second >= 2){
+            count = components.second
+            key = "secondsahead"
+        }
+        else{
+            key = "secondahead"
         }
         
         return (key,count)
