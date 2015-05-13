@@ -10,17 +10,17 @@ import Foundation
 
 extension NSDate{
     
-    public func relativeFormatted()->String{
+    public func relativeFormatted(idiomatic:Bool=false)->String{
         let calendar = NSCalendar.currentCalendar()
         let unitFlags = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitSecond
         let now = NSDate()
         let formattedDateData:(key:String,count:Int?)
         if(self.timeIntervalSince1970 < now.timeIntervalSince1970){
             let components:NSDateComponents = calendar.components(unitFlags, fromDate: self, toDate: now, options: nil)
-            formattedDateData = RelativeFormatter.getPastKeyAndCount(components)
+            formattedDateData = RelativeFormatter.getPastKeyAndCount(components,idiomatic:idiomatic)
         }else{
             let components:NSDateComponents = calendar.components(unitFlags, fromDate: now, toDate: self, options: nil)
-            formattedDateData = RelativeFormatter.getFutureKeyAndCount(components)
+            formattedDateData = RelativeFormatter.getFutureKeyAndCount(components,idiomatic:idiomatic)
         }
         return LocalizationHelper.localize(formattedDateData.key,count:formattedDateData.count)
     }
@@ -28,7 +28,7 @@ extension NSDate{
 
 class RelativeFormatter {
     
-    class func getPastKeyAndCount(components:NSDateComponents)->(key:String,count:Int?){
+    class func getPastKeyAndCount(components:NSDateComponents,idiomatic:Bool)->(key:String,count:Int?){
         var key = ""
         var count:Int?
         if(components.year >= 2){
@@ -44,6 +44,7 @@ class RelativeFormatter {
         }
         else if(components.month >= 1){
             key = "monthago"
+            
         }
         else if(components.weekOfYear >= 2){
             count = components.weekOfYear
@@ -58,6 +59,9 @@ class RelativeFormatter {
         }
         else if(components.day >= 1){
             key = "dayago"
+            if(idiomatic){
+                key = key + "-idiomatic"
+            }
         }
         else if(components.hour >= 2){
             count = components.hour
@@ -72,19 +76,26 @@ class RelativeFormatter {
         }
         else if(components.minute >= 1){
             key = "minuteago"
+            
         }
         else if(components.second >= 2){
             count = components.second
             key = "secondsago"
+            if(idiomatic){
+                key = key + "-idiomatic"
+            }
         }
         else{
             key = "secondago"
+            if(idiomatic){
+                key = "now"
+            }
         }
         
         return (key,count)
     }
     
-    class func getFutureKeyAndCount(components:NSDateComponents)->(key:String,count:Int?){
+    class func getFutureKeyAndCount(components:NSDateComponents,idiomatic:Bool)->(key:String,count:Int?){
         var key = ""
         var count:Int?
         println(components.year)
@@ -116,6 +127,9 @@ class RelativeFormatter {
         }
         else if(components.day >= 1){
             key = "dayahead"
+            if(idiomatic){
+                key = key + "-idiomatic"
+            }
         }
         else if(components.hour >= 2){
             count = components.hour
@@ -134,9 +148,15 @@ class RelativeFormatter {
         else if(components.second >= 2){
             count = components.second
             key = "secondsahead"
+            if(idiomatic){
+                key = key + "-idiomatic"
+            }
         }
         else{
             key = "secondahead"
+            if(idiomatic){
+                key = "now"
+            }
         }
         
         return (key,count)
