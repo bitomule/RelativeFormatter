@@ -5,6 +5,8 @@ NSDate swift extension to format dates according to current date.
 
 - [x] Format NSDate as Time ago
 - [x] Format NSDate as Time ahead
+- [x] Format using idiomatic style (today,yesterday,tomorrow)
+- [x] Set format precision (years,months,weeks,days,hours,minutes and seconds)
 
 ## Requirements
 
@@ -47,6 +49,64 @@ $ pod install
 
 RelativeFormatter is just an NSDate extension, you can use it with any NSDate object:
 
+There’s only one function to call:
+
+```swift
+relativeFormatted(idiomatic:Bool=false,precision:Precision=Precision.Second)->String
+```
+
+Both parameters aren’t required.
+
+- idiomatic:Bool
+
+This parameter is false by default and allows you to use idiomatic date format or just numbers.
+
+Example:
+
+```swift
+//oldDate is yesterday date
+
+oldDate.relativeFormatted()
+
+//outputs
+// “1 day ago”
+
+oldDate.relativeFormatted(idiomatic:true)
+
+//outputs
+// “yesterday”
+```
+
+- precision:Precision
+
+Precision parameter allows you to define the format precission. Default value is seconds.
+
+Example:
+
+
+```swift
+todayDate.relativeFormatted(precision:Precision.Year)
+
+//outputs
+// “this year”
+
+todayDate.relativeFormatted(precision:Precision.Month)
+
+//outputs
+// “this month”
+
+todayDate.relativeFormatted(precision:Precision.Day)
+
+//outputs
+// “today”
+
+todayDate.relativeFormatted(precision:Precision.Hour)
+
+//outputs
+// “3 hours ago”
+```
+
+You can always use relativeFormatted with default parameters.
 If you have an NSDate representing a date 2 months ago just use:
 
 ```swift
