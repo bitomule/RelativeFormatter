@@ -186,7 +186,6 @@ class RelativeFormatterTests: XCTestCase {
     
     func testSecondsAhead(){
         var twoSecondsAhead = dateBySecondsDifference(2)
-        twoSecondsAhead = twoSecondsAhead.dateByAddingTimeInterval(1)
         let localizedString = twoSecondsAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 2 seconds", "in 2 seconds")
     }

@@ -17,16 +17,61 @@ extension NSDate{
     public func relativeFormatted(idiomatic:Bool=false,precision:Precision=Precision.Second)->String{
         let calendar = NSCalendar.currentCalendar()
         let unitFlags = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitSecond
-        let now = NSDate()
+        let now = NSDate().normalized(precision)
+        let normalized = self.normalized(precision)
         let formattedDateData:(key:String,count:Int?)
-        if(self.timeIntervalSince1970 < now.timeIntervalSince1970){
-            let components:NSDateComponents = calendar.components(unitFlags, fromDate: self, toDate: now, options: nil)
+        if(normalized.timeIntervalSince1970 < now.timeIntervalSince1970){
+            let components:NSDateComponents = calendar.components(unitFlags, fromDate: normalized, toDate: now, options: nil)
             formattedDateData = RelativeFormatter.getPastKeyAndCount(components,idiomatic:idiomatic,precision:precision)
         }else{
-            let components:NSDateComponents = calendar.components(unitFlags, fromDate: now, toDate: self, options: nil)
+            let components:NSDateComponents = calendar.components(unitFlags, fromDate: now, toDate: normalized, options: nil)
             formattedDateData = RelativeFormatter.getFutureKeyAndCount(components,idiomatic:idiomatic,precision:precision)
         }
         return LocalizationHelper.localize(formattedDateData.key,count:formattedDateData.count)
+    }
+    
+    func normalized(precision:Precision)->NSDate{
+        let unitFlags = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitSecond
+        var nowDateNewcomponents = NSDateComponents()
+        let nowComponets = NSCalendar.currentCalendar().components(unitFlags, fromDate: self)
+        switch precision{
+        case .Year:
+            nowDateNewcomponents.year = nowComponets.year
+        case .Month:
+            nowDateNewcomponents.year = nowComponets.year
+            nowDateNewcomponents.month = nowComponets.month
+        case .Week:
+            nowDateNewcomponents.year = nowComponets.year
+            nowDateNewcomponents.month = nowComponets.month
+            nowDateNewcomponents.weekOfYear = nowComponets.weekOfYear
+        case .Day:
+            nowDateNewcomponents.year = nowComponets.year
+            nowDateNewcomponents.month = nowComponets.month
+            nowDateNewcomponents.weekOfYear = nowComponets.weekOfYear
+            nowDateNewcomponents.day = nowComponets.day
+        case .Hour:
+            nowDateNewcomponents.year = nowComponets.year
+            nowDateNewcomponents.month = nowComponets.month
+            nowDateNewcomponents.weekOfYear = nowComponets.weekOfYear
+            nowDateNewcomponents.day = nowComponets.day
+            nowDateNewcomponents.hour = nowComponets.hour
+        case .Minute:
+            nowDateNewcomponents.year = nowComponets.year
+            nowDateNewcomponents.month = nowComponets.month
+            nowDateNewcomponents.weekOfYear = nowComponets.weekOfYear
+            nowDateNewcomponents.day = nowComponets.day
+            nowDateNewcomponents.hour = nowComponets.hour
+            nowDateNewcomponents.minute = nowComponets.minute
+        case .Second:
+            nowDateNewcomponents.year = nowComponets.year
+            nowDateNewcomponents.month = nowComponets.month
+            nowDateNewcomponents.weekOfYear = nowComponets.weekOfYear
+            nowDateNewcomponents.day = nowComponets.day
+            nowDateNewcomponents.hour = nowComponets.hour
+            nowDateNewcomponents.minute = nowComponets.minute
+            nowDateNewcomponents.second = nowComponets.second
+        }
+        return NSCalendar.currentCalendar().dateFromComponents(nowDateNewcomponents)!
     }
 }
 
@@ -119,9 +164,7 @@ class RelativeFormatter {
     class func getFutureKeyAndCount(components:NSDateComponents,idiomatic:Bool,precision:Precision)->(key:String,count:Int?){
         var key = ""
         var count:Int?
-        println(components.year)
         if(components.year >= 2){
-            println(components.year)
             count = components.year
             key = "yearsahead"
         }

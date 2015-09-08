@@ -16,6 +16,7 @@ class RelativeFormatterIdiomaticTests: XCTestCase {
     func testDayAgo(){
         let oneDayAgo = dateByDaysDifference(-1)
         let localizedString = oneDayAgo.relativeFormatted(idiomatic: true)
+        print(localizedString)
         XCTAssertEqual(localizedString, "yesterday", "yesterday")
     }
 
