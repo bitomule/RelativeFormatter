@@ -10,10 +10,12 @@ import Foundation
 
 class LocalizationHelper{
     class func localize(key:String,count:Int?=nil)->String{
-        var localizedString = NSLocalizedString(key, tableName: "RelativeFormatter", bundle: NSBundle(path: NSBundle(forClass: LocalizationHelper.self).resourcePath!.stringByAppendingPathComponent("RelativeFormatter.bundle"))!, value: "", comment: "")
+        let bundlePath = (NSBundle(forClass: LocalizationHelper.self).resourcePath! as NSString).stringByAppendingPathComponent("RelativeFormatter.bundle")
+        
+        var localizedString = NSLocalizedString(key, tableName: "RelativeFormatter", bundle: NSBundle(path: bundlePath)!, value: "", comment: "")
         
         if let count = count{
-            localizedString = NSString.localizedStringWithFormat(localizedString, count) as String
+            localizedString = String.localizedStringWithFormat(localizedString, count)
         }
         return localizedString
     }

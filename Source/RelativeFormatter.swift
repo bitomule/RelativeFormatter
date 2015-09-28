@@ -16,23 +16,23 @@ extension NSDate{
     
     public func relativeFormatted(idiomatic:Bool=false,precision:Precision=Precision.Second)->String{
         let calendar = NSCalendar.currentCalendar()
-        let unitFlags = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitSecond
+        let unitFlags: NSCalendarUnit = [NSCalendarUnit.Minute, NSCalendarUnit.Hour, NSCalendarUnit.Day, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.Second]
         let now = NSDate().normalized(precision)
         let normalized = self.normalized(precision)
         let formattedDateData:(key:String,count:Int?)
         if(normalized.timeIntervalSince1970 < now.timeIntervalSince1970){
-            let components:NSDateComponents = calendar.components(unitFlags, fromDate: normalized, toDate: now, options: nil)
+            let components:NSDateComponents = calendar.components(unitFlags, fromDate: normalized, toDate: now, options: [])
             formattedDateData = RelativeFormatter.getPastKeyAndCount(components,idiomatic:idiomatic,precision:precision)
         }else{
-            let components:NSDateComponents = calendar.components(unitFlags, fromDate: now, toDate: normalized, options: nil)
+            let components:NSDateComponents = calendar.components(unitFlags, fromDate: now, toDate: normalized, options: [])
             formattedDateData = RelativeFormatter.getFutureKeyAndCount(components,idiomatic:idiomatic,precision:precision)
         }
         return LocalizationHelper.localize(formattedDateData.key,count:formattedDateData.count)
     }
     
     func normalized(precision:Precision)->NSDate{
-        let unitFlags = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitSecond
-        var nowDateNewcomponents = NSDateComponents()
+        let unitFlags: NSCalendarUnit = [NSCalendarUnit.Minute, NSCalendarUnit.Hour, NSCalendarUnit.Day, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.Second]
+        let nowDateNewcomponents = NSDateComponents()
         let nowComponets = NSCalendar.currentCalendar().components(unitFlags, fromDate: self)
         switch precision{
         case .Year:
