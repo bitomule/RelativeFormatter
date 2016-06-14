@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RelativeFormatter"
-  s.version      = "0.6.0"
+  s.version      = "0.7.0"
   s.summary      = "NSDate swift extension to format dates relative to current date."
 
   s.description  = <<-DESC
@@ -22,13 +22,15 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
 
 
-  s.author             = { "David Collado Sela" => "bitomule@gmail.com" }
+  s.author             = { "David Collado Sela" => "bitomule@gmail.com", "David Santana" => "David@2coders.com" }
   s.social_media_url   = "http://twitter.com/bitomule"
 
-  s.platform     = :ios
-  s.platform     = :ios, "8.0"
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.9'
+  s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target = '9.0'
 
-  s.source       = { :git => "https://github.com/bitomule/RelativeFormatter.git", :tag => "0.6.0" }
+  s.source       = { :git => "https://github.com/bitomule/RelativeFormatter.git", :tag => "0.7.0" }
 
   s.source_files = 'Source/*.swift'
   s.resources    = 'Source/RelativeFormatter.bundle'
