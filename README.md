@@ -133,5 +133,6 @@ RelativeFormatter includes localization for:
 
 - [x] English
 - [x] Spanish
+- [x] French
 
 If you can to include a new language please create a pull request
