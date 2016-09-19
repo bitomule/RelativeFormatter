@@ -10,8 +10,9 @@ NSDate swift extension to format dates according to current date.
 
 ## Requirements
 
-- iOS 7.0+ / Mac OS X 10.9+
-- Xcode 6.3
+- iOS 8.0+ / Mac OS X 10.9+
+- Xcode 8.0
+- Swift 3
 
 ## Installation
 
