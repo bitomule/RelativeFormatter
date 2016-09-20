@@ -102,84 +102,84 @@ class RelativeFormatterTests: XCTestCase {
     func testYearsAhead(){
         var twoYearsAhead = dateByYearsDifference(2)
         //We need to add 1 second as 2 exactly years doesn't work
-        twoYearsAhead = twoYearsAhead.dateByAddingTimeInterval(1)
+        twoYearsAhead = twoYearsAhead.addingTimeInterval(1)
         let localizedString = twoYearsAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 2 years", "in 2 years")
     }
     
     func testYearAhead(){
         var oneYearAhead = dateByYearsDifference(1)
-        oneYearAhead = oneYearAhead.dateByAddingTimeInterval(1)
+        oneYearAhead = oneYearAhead.addingTimeInterval(1)
         let localizedString = oneYearAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 1 year", "in 1 year")
     }
     
     func testMonthsAhead(){
         var twoMonthsAhead = dateByMonthsDifference(2)
-        twoMonthsAhead = twoMonthsAhead.dateByAddingTimeInterval(1)
+        twoMonthsAhead = twoMonthsAhead.addingTimeInterval(1)
         let localizedString = twoMonthsAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 2 months", "in 2 months")
     }
     
     func testMonthAhead(){
         var oneMonthAhead = dateByMonthsDifference(1)
-        oneMonthAhead = oneMonthAhead.dateByAddingTimeInterval(1)
+        oneMonthAhead = oneMonthAhead.addingTimeInterval(1)
         let localizedString = oneMonthAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 1 month", "in 1 month")
     }
     
     func testWeeksAhead(){
         var twoWeeksAhead = dateByWeeksDifference(2)
-        twoWeeksAhead = twoWeeksAhead.dateByAddingTimeInterval(1)
+        twoWeeksAhead = twoWeeksAhead.addingTimeInterval(1)
         let localizedString = twoWeeksAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 2 weeks", "in 2 weeks")
     }
     
     func testWeekAhead(){
         var oneWeekAhead = dateByWeeksDifference(1)
-        oneWeekAhead = oneWeekAhead.dateByAddingTimeInterval(1)
+        oneWeekAhead = oneWeekAhead.addingTimeInterval(1)
         let localizedString = oneWeekAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 1 week", "in 1 week")
     }
     
     func testDaysAhead(){
         var twoDaysAhead = dateByDaysDifference(2)
-        twoDaysAhead = twoDaysAhead.dateByAddingTimeInterval(1)
+        twoDaysAhead = twoDaysAhead.addingTimeInterval(1)
         let localizedString = twoDaysAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 2 days", "in 2 days")
     }
     
     func testDayAhead(){
         var oneDayAhead = dateByDaysDifference(1)
-        oneDayAhead = oneDayAhead.dateByAddingTimeInterval(1)
+        oneDayAhead = oneDayAhead.addingTimeInterval(1)
         let localizedString = oneDayAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 1 day", "in 1 day")
     }
     
     func testHoursAhead(){
         var twoHoursAhead = dateByHoursDifference(2)
-        twoHoursAhead = twoHoursAhead.dateByAddingTimeInterval(1)
+        twoHoursAhead = twoHoursAhead.addingTimeInterval(1)
         let localizedString = twoHoursAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 2 hours", "in 2 hours")
     }
     
     func testHourAhead(){
         var oneHourAhead = dateByHoursDifference(1)
-        oneHourAhead = oneHourAhead.dateByAddingTimeInterval(1)
+        oneHourAhead = oneHourAhead.addingTimeInterval(1)
         let localizedString = oneHourAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 1 hour", "in 1 hour")
     }
     
     func testMinutesAhead(){
         var twoMinutesAhead = dateByMinutesDifference(2)
-        twoMinutesAhead = twoMinutesAhead.dateByAddingTimeInterval(1)
+        twoMinutesAhead = twoMinutesAhead.addingTimeInterval(1)
         let localizedString = twoMinutesAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 2 minutes", "in 2 minutes")
     }
     
     func testMinuteAhead(){
         var oneMinuteAhead = dateByMinutesDifference(1)
-        oneMinuteAhead = oneMinuteAhead.dateByAddingTimeInterval(1)
+        oneMinuteAhead = oneMinuteAhead.addingTimeInterval(1)
         let localizedString = oneMinuteAhead.relativeFormatted()
         XCTAssertEqual(localizedString, "in 1 minute", "in 1 minute")
     }
@@ -199,69 +199,69 @@ class RelativeFormatterTests: XCTestCase {
     //MARK: - Precision
     
     func testYearPrecision(){
-        let now = NSDate()
-        let localizedString = now.relativeFormatted(precision:Precision.Year)
+        let now = Date()
+        let localizedString = now.relativeFormatted(precision:Precision.year)
         XCTAssertEqual(localizedString, "this year", "this year")
     }
     
     func testMonthPrecision(){
-        let now = NSDate()
-        let localizedString = now.relativeFormatted(precision:Precision.Month)
+        let now = Date()
+        let localizedString = now.relativeFormatted(precision:Precision.month)
         XCTAssertEqual(localizedString, "this month", "this month")
     }
     
     func testWeekPrecision(){
-        let now = NSDate()
-        let localizedString = now.relativeFormatted(precision:Precision.Week)
+        let now = Date()
+        let localizedString = now.relativeFormatted(precision:Precision.week)
         XCTAssertEqual(localizedString, "this week", "this week")
     }
     
     func testDayPrecision(){
-        let now = NSDate()
-        let localizedString = now.relativeFormatted(precision:Precision.Day)
+        let now = Date()
+        let localizedString = now.relativeFormatted(precision:Precision.day)
         XCTAssertEqual(localizedString, "today", "today")
     }
     
     func testHourPrecision(){
-        let now = NSDate()
-        let localizedString = now.relativeFormatted(precision:Precision.Hour)
+        let now = Date()
+        let localizedString = now.relativeFormatted(precision:Precision.hour)
         XCTAssertEqual(localizedString, "less than one hour", "less than one hour")
     }
     
     func testMinutePrecision(){
-        let now = NSDate()
-        let localizedString = now.relativeFormatted(precision:Precision.Minute)
+        let now = Date()
+        let localizedString = now.relativeFormatted(precision:Precision.minute)
         XCTAssertEqual(localizedString, "less than one minute", "less than one minute")
     }
     
     //MARK: - Helpers
     
-    func dateByYearsDifference(years:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: years, toDate: NSDate(), options: [])!
+    func dateByYearsDifference(_ years:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.year, value: years, to: Date(), options: [])!
     }
     
-    func dateByMonthsDifference(months:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: months, toDate: NSDate(), options: [])!
+    func dateByMonthsDifference(_ months:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.month, value: months, to: Date(), options: [])!
     }
     
-    func dateByWeeksDifference(weeks:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.WeekOfYear, value: weeks, toDate: NSDate(), options: [])!
+    func dateByWeeksDifference(_ weeks:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.weekOfYear, value: weeks, to: Date(), options: [])!
     }
     
-    func dateByDaysDifference(days:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: days, toDate: NSDate(), options: [])!
+    func dateByDaysDifference(_ days:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.day, value: days, to: Date(), options: [])!
     }
     
-    func dateByHoursDifference(hours:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Hour, value: hours, toDate: NSDate(), options: [])!
+    func dateByHoursDifference(_ hours:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.hour, value: hours, to: Date(), options: [])!
     }
     
-    func dateByMinutesDifference(minutes:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Minute, value: minutes, toDate: NSDate(), options: [])!
+    func dateByMinutesDifference(_ minutes:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.minute, value: minutes, to: Date(), options: [])!
     }
     
-    func dateBySecondsDifference(seconds:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Second, value: seconds, toDate: NSDate(), options: [])!
+    func dateBySecondsDifference(_ seconds:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.second, value: seconds, to: Date(), options: [])!
     }
     
     

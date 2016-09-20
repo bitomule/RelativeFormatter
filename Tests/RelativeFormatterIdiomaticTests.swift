@@ -37,52 +37,52 @@ class RelativeFormatterIdiomaticTests: XCTestCase {
 
     func testDayAhead(){
         var oneDayAhead = dateByDaysDifference(1)
-        oneDayAhead = oneDayAhead.dateByAddingTimeInterval(1)
+        oneDayAhead = oneDayAhead.addingTimeInterval(1)
         let localizedString = oneDayAhead.relativeFormatted(true)
         XCTAssertEqual(localizedString, "tomorrow", "tomorrow")
     }
     
     func testSecondsAhead(){
         var twoSecondsAhead = dateBySecondsDifference(2)
-        twoSecondsAhead = twoSecondsAhead.dateByAddingTimeInterval(1)
+        twoSecondsAhead = twoSecondsAhead.addingTimeInterval(1)
         let localizedString = twoSecondsAhead.relativeFormatted(true)
         XCTAssertEqual(localizedString, "in a few seconds", "in a few seconds")
     }
 
     func testSecondAhead(){
-        var oneSecondAhead = dateBySecondsDifference(1)
+        let oneSecondAhead = dateBySecondsDifference(1)
         let localizedString = oneSecondAhead.relativeFormatted(true)
         XCTAssertEqual(localizedString, "now", "now")
     }
 
     //MARK: - Helpers
 
-    func dateByYearsDifference(years:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: years, toDate: NSDate(), options: [])!
+    func dateByYearsDifference(_ years:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.year, value: years, to: Date(), options: [])!
     }
 
-    func dateByMonthsDifference(months:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: months, toDate: NSDate(), options: [])!
+    func dateByMonthsDifference(_ months:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.month, value: months, to: Date(), options: [])!
     }
 
-    func dateByWeeksDifference(weeks:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.WeekOfYear, value: weeks, toDate: NSDate(), options: [])!
+    func dateByWeeksDifference(_ weeks:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.weekOfYear, value: weeks, to: Date(), options: [])!
     }
     
-    func dateByDaysDifference(days:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: days, toDate: NSDate(), options: [])!
+    func dateByDaysDifference(_ days:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.day, value: days, to: Date(), options: [])!
     }
     
-    func dateByHoursDifference(hours:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Hour, value: hours, toDate: NSDate(), options: [])!
+    func dateByHoursDifference(_ hours:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.hour, value: hours, to: Date(), options: [])!
     }
     
-    func dateByMinutesDifference(minutes:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Minute, value: minutes, toDate: NSDate(), options: [])!
+    func dateByMinutesDifference(_ minutes:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.minute, value: minutes, to: Date(), options: [])!
     }
     
-    func dateBySecondsDifference(seconds:Int) -> NSDate{
-        return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Second, value: seconds, toDate: NSDate(), options: [])!
+    func dateBySecondsDifference(_ seconds:Int) -> Date{
+        return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.second, value: seconds, to: Date(), options: [])!
     }
 
     
