@@ -1,10 +1,10 @@
 # RelativeFormatter
-NSDate swift extension to format dates according to current date.
+Date swift extension to format dates according to current date.
 
 ## Features
 
-- [x] Format NSDate as Time ago
-- [x] Format NSDate as Time ahead
+- [x] Format Date as Time ago
+- [x] Format Date as Time ahead
 - [x] Format using idiomatic style (today,yesterday,tomorrow)
 - [x] Set format precision (years,months,weeks,days,hours,minutes and seconds)
 
@@ -17,12 +17,12 @@ NSDate swift extension to format dates according to current date.
 ## Installation
 
 > **Embedded frameworks require a minimum deployment target of iOS 8 or OS X Mavericks.**
->
+> 
 
 
 ### CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects.
+[CocoaPods][1] is a dependency manager for Cocoa projects.
 
 CocoaPods 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
 
@@ -111,7 +111,7 @@ You can always use relativeFormatted with default parameters.
 If you have an NSDate representing a date 2 months ago just use:
 
 ```swift
-	oldDate.relativeFormatted()
+    oldDate.relativeFormatted()
 ```
 
 And you'll get:
@@ -121,7 +121,7 @@ And you'll get:
 It also works for ahead dates (date in 3 years):
 
 ```swift
-	futureDate.relativeFormatted()
+    futureDate.relativeFormatted()
 ```
 
 will return:
@@ -137,3 +137,5 @@ RelativeFormatter includes localization for:
 - [x] French
 
 If you can to include a new language please create a pull request
+
+[1]:	http://cocoapods.org
