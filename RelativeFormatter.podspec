@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RelativeFormatter"
-  s.version      = "0.8.2"
+  s.version      = "0.8.3"
   s.summary      = "Date swift extension to format dates relative to current date."
 
   s.description  = <<-DESC
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = '2.0'
   s.tvos.deployment_target = '9.0'
 
-  s.source       = { :git => "https://github.com/bitomule/RelativeFormatter.git", :tag => "0.8.2" }
+  s.source       = { :git => "https://github.com/bitomule/RelativeFormatter.git", :tag => "0.8.3" }
 
   s.source_files = 'Source/*.swift'
   s.resources    = 'Source/RelativeFormatter.bundle'
